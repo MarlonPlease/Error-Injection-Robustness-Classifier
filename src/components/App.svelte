@@ -68,12 +68,16 @@
     @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
 
     :root {
-        --color-bg: rgb(165, 165, 165);
-        --color-text: rgb(0, 0, 0);
+        --color-bg: rgb(0, 0, 0);
+        --color-text: rgb(255, 255, 255);
         --nav-bg: rgb(255, 225, 0);
         --nav-text: #FFF;
         --nav-active:rgb(0, 0, 0);
     }
+
+    :global(body) {
+            background-color: var(--color-bg);
+        }
 
     *,
     *::before,
@@ -95,7 +99,7 @@
         top: 0;
         left: 0;
         right: 0;
-        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
+        box-shadow: 0 25px 10px rgba(0, 0, 0, 0.75);
         z-index: 10;
         display: flex;
         justify-content: center;
