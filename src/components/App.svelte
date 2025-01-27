@@ -71,7 +71,7 @@
         --color-bg: rgb(0, 0, 0);
         --color-text: rgb(255, 255, 255);
         --nav-bg: rgb(255, 225, 0);
-        --nav-text: #FFF;
+        --nav-text: rgb(0, 0, 0);
         --nav-active:rgb(0, 0, 0);
     }
 
@@ -116,7 +116,7 @@
         font-size: 22px;
         font-weight: 700;
         cursor: pointer;
-        transition: color 0.5s ease, border 0.5s ease, background-color 0.5s ease;
+        transition: color 0.3s ease, border 0.3s ease, background-color 0.3s ease;
     }
 
     nav li.active {
