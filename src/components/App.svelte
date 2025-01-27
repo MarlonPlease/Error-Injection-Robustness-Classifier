@@ -70,9 +70,9 @@
     :root {
         --color-bg: rgb(165, 165, 165);
         --color-text: rgb(0, 0, 0);
-        --nav-bg: #000;
+        --nav-bg: rgb(255, 225, 0);
         --nav-text: #FFF;
-        --nav-active: #B3F0FF;
+        --nav-active:rgb(0, 0, 0);
     }
 
     *,
@@ -95,7 +95,7 @@
         top: 0;
         left: 0;
         right: 0;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
         z-index: 10;
     }
 
@@ -111,11 +111,17 @@
         font-size: 22px;
         font-weight: 700;
         cursor: pointer;
-        transition: color 0.3s ease;
+        transition: color 0.8s ease;
     }
 
     nav li.active {
         color: var(--nav-active);
+        color: var(--nav-active);
+        border: 2px solid var(--nav-active); /* Add a border around the active item */
+        padding: 5px 10px; /* Add padding inside the border */
+        border-radius: 10px; /* Optional: make the box corners rounded */
+        background-color: rgb(255, 255, 255); /* Optional: add a subtle background for the active item */
+        transition: all 0.8s ease;
     }
 
     main {
@@ -134,15 +140,19 @@
     }
 
     h1 {
-        font-size: 60px;
+        font-size: 40px;
         font-weight: 300;
         line-height: 1.2;
         margin-bottom: 20px;
+        text-align: left;
+        padding-left: 20px;
     }
 
     p {
         font-size: 20px;
         font-weight: 400;
         line-height: 1.6;
+        text-align: left;
+        padding-left: 20px;
     }
 </style>
