@@ -95,14 +95,15 @@
         top: 0;
         left: 0;
         right: 0;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0);
+        box-shadow: 0 5px 5px rgba(0, 0, 0, 0.25);
         z-index: 10;
+        display: flex;
+        justify-content: center;
     }
 
     nav ul {
         list-style: none;
         display: flex;
-        justify-content: center;
         gap: 20px;
     }
 
@@ -111,17 +112,15 @@
         font-size: 22px;
         font-weight: 700;
         cursor: pointer;
-        transition: color 0.8s ease;
+        transition: color 0.5s ease, border 0.5s ease, background-color 0.5s ease;
     }
 
     nav li.active {
         color: var(--nav-active);
-        color: var(--nav-active);
-        border: 2px solid var(--nav-active); /* Add a border around the active item */
-        padding: 5px 10px; /* Add padding inside the border */
+        border: 3px solid var(--nav-active); /* Add a border around the active item */
         border-radius: 10px; /* Optional: make the box corners rounded */
         background-color: rgb(255, 255, 255); /* Optional: add a subtle background for the active item */
-        transition: all 0.8s ease;
+        padding: 3px 10px; /* Add padding inside the border */
     }
 
     main {
