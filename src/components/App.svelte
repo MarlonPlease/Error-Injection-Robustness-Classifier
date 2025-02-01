@@ -121,6 +121,7 @@
     main {
         height: 100vh;
         padding: 80px 20px 20px;
+        padding-top: 100px;
         font-family: 'Merriweather', serif;
         font-weight: 300;
         line-height: 1.5;
@@ -130,8 +131,8 @@
     }
 
     section {
-        padding: 30px 0; /* Ensures sections are large enough for the observer */
-        min-height: 100vh; /* Adjust for better scrolling detection */
+        padding: 20px 0; /* Ensures sections are large enough for the observer */
+        min-height: 40vh; /* Adjust for better scrolling detection */
     }
 
     h1 {

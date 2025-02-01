@@ -7,14 +7,6 @@
     { title: "Card 3", content: "This is the third card." }
   ];
 
-  function nextCard() {
-    currentIndex = (currentIndex + 1) % cards.length;
-  }
-
-  function prevCard() {
-    currentIndex = (currentIndex - 1 + cards.length) % cards.length;
-  }
-
   function scrollToCard(index) {
     currentIndex = index; // Update the current card index
     const cardElement = document.getElementById(`carousel-card-${index}`);
@@ -29,7 +21,7 @@
     align-items: center;
     gap: 20px;
     width: 100%;
-    height: 80vh;
+    height: auto;
     overflow-y: auto;
     margin-top: 20px;
   }
@@ -48,42 +40,26 @@
     flex-direction: column;
   }
 
-  .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    font-size: 48px;
-    cursor: pointer;
-    color: white;
-  }
-
-  .arrow-left {
-    left: 10px;
-  }
-
-  .arrow-right {
-    right: 10px;
-  }
-
   .card {
-    padding: 20px;
+    padding: 40px; /* Increased padding for larger cards */
     background-color: rgb(255, 225, 0);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    min-width: 300px;
+    min-width: 350px; /* Increased card size */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
   .card-header {
-    font-size: 1.5em;
+    font-size: 1.8em; /* Larger font size for the title */
     font-weight: bold;
     cursor: pointer;
     color: rgb(0, 0, 0);
+    margin-bottom: 20px; /* Space between title and content */
+    text-align: center; /* Center the title */
   }
 
   .card-header:hover {
@@ -148,14 +124,10 @@
     {#each cards as card, index}
       <div id="carousel-card-{index}" class="carousel-card">
         <div class="card">
-          <h3>{card.title}</h3>
+          <div class="card-header">{card.title}</div>
           <p>{card.content}</p>
         </div>
       </div>
     {/each}
   </div>
-
-  <!-- Arrow Controls -->
-  <button class="arrow arrow-left" on:click={prevCard}>⬅️</button>
-  <button class="arrow arrow-right" on:click={nextCard}>➡️</button>
 </div>
