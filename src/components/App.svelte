@@ -1,67 +1,58 @@
 <script>
     import { onMount } from "svelte";
+    import Card1 from "./Card1.svelte";
+    import { writable } from "svelte/store";
 
-    let currentSection = "Background"; // Default section
-    const sections = ["Background", "Section 2", "Section 3", "Section 4" ];
+    let currentSection = writable("Background"); // Reactive store
+    const sections = ["Background", "Experiments"];
 
     onMount(() => {
         const observer = new IntersectionObserver(
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        currentSection = entry.target.id;
+                        currentSection.set(entry.target.id); // Update reactively
                     }
                 });
             },
-            { threshold: 0.5 } // Adjust as needed
+            { threshold: 0.5 }
         );
 
         document.querySelectorAll("section").forEach((section) => {
             observer.observe(section);
         });
     });
+
+    function scrollToSection(section) {
+        document.getElementById(section).scrollIntoView({ behavior: "smooth" });
+    }
 </script>
 
 <main>
     <nav>
         <ul>
             {#each sections as section}
-                <li class="{currentSection === section ? 'active' : ''}">
+                <li on:click={() => scrollToSection(section)} class="{$currentSection === section ? 'active' : ''}">
                     {section}
                 </li>
             {/each}
         </ul>
     </nav>
 
-    <section id="Background">
+    <section id="Background" style="min-height: 60vh;">
         <h1>Background</h1>
         <p>
-            This presentation focuses on exploring techniques and fill in words practices for ensuring data robustness in various fill. We will discuss strategies for fill in words, enhancing data quality, and mitigating risks associated with unreliable or biased datasets.
+            This presentation focuses on exploring techniques and fill-in-word practices for ensuring data robustness.
         </p>
     </section>
 
-    <section id="Section 2">
-        <h1>Section 2</h1>
+    <section id="Experiments">
+        <h1>Experiments</h1>
+        <Card1 />
         <p>
-            This presentation focuses on exploring techniques and fill in words practices for ensuring data robustness in various fill. We will discuss strategies for fill in words, enhancing data quality, and mitigating risks associated with unreliable or biased datasets.
+            We discuss strategies for enhancing data quality and mitigating risks associated with unreliable datasets.
         </p>
     </section>
-
-    <section id="Section 3">
-        <h1>Section 3</h1>
-        <p>
-            This presentation focuses on exploring techniques and fill in words practices for ensuring data robustness in various fill. We will discuss strategies for fill in words, enhancing data quality, and mitigating risks associated with unreliable or biased datasets.
-        </p>
-    </section>
-
-    <section id="Section 4">
-        <h1>Section 4</h1>
-        <p>
-            This presentation focuses on exploring techniques and fill in words practices for ensuring data robustness in various fill. We will discuss strategies for fill in words, enhancing data quality, and mitigating risks associated with unreliable or biased datasets.
-        </p>
-    </section>
-
-
 </main>
 
 <style>
@@ -72,12 +63,12 @@
         --color-text: rgb(255, 255, 255);
         --nav-bg: rgb(255, 225, 0);
         --nav-text: rgb(0, 0, 0);
-        --nav-active:rgb(0, 0, 0);
+        --nav-active: rgb(0, 0, 0);
     }
 
     :global(body) {
-            background-color: var(--color-bg);
-        }
+        background-color: var(--color-bg);
+    }
 
     *,
     *::before,
@@ -121,10 +112,10 @@
 
     nav li.active {
         color: var(--nav-active);
-        border: 3px solid var(--nav-active); /* Add a border around the active item */
-        border-radius: 10px; /* Optional: make the box corners rounded */
-        background-color: rgb(255, 255, 255); /* Optional: add a subtle background for the active item */
-        padding: 3px 10px; /* Add padding inside the border */
+        border: 3px solid var(--nav-active);
+        border-radius: 10px;
+        background-color: rgb(255, 255, 255);
+        padding: 3px 10px;
     }
 
     main {
@@ -139,7 +130,8 @@
     }
 
     section {
-        padding: 80px 0;
+        padding: 30px 0; /* Ensures sections are large enough for the observer */
+        min-height: 100vh; /* Adjust for better scrolling detection */
     }
 
     h1 {
