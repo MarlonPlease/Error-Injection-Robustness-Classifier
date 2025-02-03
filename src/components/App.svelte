@@ -4,7 +4,7 @@
     import { writable } from "svelte/store";
 
     let currentSection = writable("Background"); // Reactive store
-    const sections = ["Background", "Experiments"];
+    const sections = ["Background", "Leave One Out"];
 
     onMount(() => {
         const observer = new IntersectionObserver(
@@ -46,8 +46,8 @@
         </p>
     </section>
 
-    <section id="Experiments">
-        <h1>Experiments</h1>
+    <section id="Leave One Out">
+        <h1>Leave One Out</h1>
         <Card1 />
         <p>
             We discuss strategies for enhancing data quality and mitigating risks associated with unreliable datasets.

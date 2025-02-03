@@ -1,16 +1,35 @@
 <script>
+  import mpgImage from '../lib/mpg_leave_one_out-1.jpg';  // Adjust the path to where the image is located
+
   let currentIndex = 0;
 
   const cards = [
-    { title: "Card 1", content: "This is the first card." },
-    { title: "Card 2", content: "This is the second card." },
-    { title: "Card 3", content: "This is the third card." }
+    {
+      title: "MPG Dataset",
+      content: "This is the first card with an image.",
+      image: mpgImage
+      
+    },
+    {
+      title: "Insurance Dataset",
+      content: "This is the second card with a longer description and another image.",
+      image: "/images/insurance_data.jpg" // Replace with an actual image file in public/images/
+    },
+    {
+      title: "Card 3",
+      content: "This is the third card, demonstrating a mix of text and images.",
+      image: "https://upload.wikimedia.org/wikipedia/commons/4/41/JPEG_compression_Example.jpg" // Correct direct image URL
+    }
   ];
 
   function scrollToCard(index) {
-    currentIndex = index; // Update the current card index
+    currentIndex = index;
     const cardElement = document.getElementById(`carousel-card-${index}`);
-    cardElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (cardElement) {
+      setTimeout(() => {
+        cardElement.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+      }, 100);
+    }
   }
 </script>
 
@@ -21,45 +40,55 @@
     align-items: center;
     gap: 20px;
     width: 100%;
-    height: auto;
-    overflow-y: auto;
     margin-top: 20px;
-  }
-
-  .carousel {
-    display: flex;
-    width: 80vw;
-    height: 60vh;
-    background-color: rgb(255, 225, 0);
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    position: relative;
     overflow: hidden;
-    justify-content: center;
-    flex-direction: column;
   }
 
-  .card {
-    padding: 40px; /* Increased padding for larger cards */
-    background-color: rgb(255, 225, 0);
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    min-width: 350px; /* Increased card size */
+  .carousel-wrapper {
     display: flex;
-    flex-direction: column;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    width: 80%;
+    gap: 10px;
+    padding: 20px 0;
+  }
+
+  .carousel-card {
+    min-width: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
   }
 
+  .card {
+    padding: 40px;
+    background-color: rgb(255, 225, 0);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+
   .card-header {
-    font-size: 1.8em; /* Larger font size for the title */
+    font-size: 1.8em;
     font-weight: bold;
     cursor: pointer;
     color: rgb(0, 0, 0);
-    margin-bottom: 20px; /* Space between title and content */
-    text-align: center; /* Center the title */
+    margin-bottom: 20px;
+    text-align: center;
   }
 
   .card-header:hover {
@@ -79,34 +108,14 @@
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
-    color: white;
+    color: black;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s;
   }
 
   .header-nav button:hover {
-    background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-  }
-
-  .card-container {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    overflow-x: auto;
-  }
-
-  .carousel-card {
-    min-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .carousel-wrapper {
-    display: flex;
-    overflow-x: auto;
-    transition: transform 0.3s ease;
+    background-color: black;
+    color: yellow;
   }
 </style>
 
@@ -120,10 +129,10 @@
 <!-- Carousel -->
 <div class="carousel-container">
   <div class="carousel-wrapper" id="carousel-wrapper">
-    <!-- Cards inside the carousel -->
     {#each cards as card, index}
       <div id="carousel-card-{index}" class="carousel-card">
         <div class="card">
+          <img src={card.image} alt={card.title} />
           <div class="card-header">{card.title}</div>
           <p>{card.content}</p>
         </div>
