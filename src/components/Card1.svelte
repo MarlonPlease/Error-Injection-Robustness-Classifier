@@ -6,7 +6,19 @@
   const cards = [
     {
       title: "MPG Dataset",
-      content: "This is the first card with an image.",
+      content: `In Fig. 1, we see the resulting robustness ratios and their deterioration as uncertainty
+radius and percentages increase in size. We compare 5 of these deterioration in the form of
+heat maps where two maps are based on the the Naive method (top two most heat maps)
+and all below heat maps are methods generated with a given model and metric (labeled
+respectively). All left hand side plots incorporate Meyer’s method while right hand plots
+utilize ZORRO. First thing to easily notice is that ZORRO seems to perform much better
+than in robustness retainment in the face of increasing uncertainty than Meyer, as we see
+Meyer has hit near 0 robustness by the time the most extreme uncertainty parameters are
+utilized on the heat map. In the other hand, ZORRO barely pasts the 50 percent threshold
+on robustness under these similar circumstances. Comparing methods, it seems here that
+the combination of the Linear Regression model and the mean absolute error performed the
+best attack against robustness on this dataset, with the Linear Regression model performing
+more effective attacks than the RandomForestRegressor model in general here.`,
       image: mpgImage
       
     },
@@ -84,6 +96,9 @@
 
   .card p {
     color: black; /* Set the text color to black */
+    white-space: normal; /* Allow text to wrap */
+    word-wrap: break-word; /* Break long words to avoid overflow */
+    margin: 0;
   }
 
   .card-header {
