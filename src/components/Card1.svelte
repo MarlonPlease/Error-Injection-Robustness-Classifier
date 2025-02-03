@@ -82,6 +82,10 @@
     margin-bottom: 15px;
   }
 
+  .card p {
+    color: black; /* Set the text color to black */
+  }
+
   .card-header {
     font-size: 1.8em;
     font-weight: bold;
@@ -91,9 +95,6 @@
     text-align: center;
   }
 
-  .card-header:hover {
-    color: rgb(255, 225, 0);
-  }
 
   .header-nav {
     display: flex;
@@ -115,7 +116,7 @@
 
   .header-nav button:hover {
     background-color: black;
-    color: yellow;
+    color: rgb(255, 225, 0);
   }
 </style>
 
@@ -132,9 +133,9 @@
     {#each cards as card, index}
       <div id="carousel-card-{index}" class="carousel-card">
         <div class="card">
-          <img src={card.image} alt={card.title} />
           <div class="card-header">{card.title}</div>
           <p>{card.content}</p>
+          <img src={card.image} alt={card.title} />
         </div>
       </div>
     {/each}
