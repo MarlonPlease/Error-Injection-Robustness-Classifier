@@ -43,6 +43,8 @@
         <h1>Background</h1>
         <p>
             This presentation focuses on exploring techniques and fill-in-word practices for ensuring data robustness.
+            TODO: PATTERN MINING(how it works, results of pattern mining, lineplots heatmaps showcase, insurance is exception(super sensitive)),
+            normalization(normalize all results togeter, which is more robust in respect to a parameter, predicting a specific column),  
         </p>
     </section>
 
