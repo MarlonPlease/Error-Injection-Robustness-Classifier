@@ -1,10 +1,11 @@
 <script>
     import { onMount } from "svelte";
     import Card1 from "./Card1.svelte";
+    import Card2 from "./Card2.svelte";
     import { writable } from "svelte/store";
 
     let currentSection = writable("Background"); // Reactive store
-    const sections = ["Background", "Leave One Out"];
+    const sections = ["Background", "Leave One Out","Discretization Methods"];
 
     onMount(() => {
         const observer = new IntersectionObserver(
@@ -50,16 +51,34 @@
 
     <section id="Leave One Out">
         <h1>Leave One Out</h1>
-        <Card1 />
+        
         <p>
-            We discuss strategies for enhancing data quality and mitigating risks associated with unreliable datasets.
+            This following are the results of utilizing the leave one out method mentioned in section 2.1
+to analyze the robustness ratios under given parameters for the below 2 datasets. Note per
+section 2.3, robustness radius is declared for both datasets already with the MPG dataset
+using a parameter of 2 and the insurance dataset using a parameter of 500. We’ll go into
+further explanation behind the reasoning of setting these parameters at these key values in
+the discussion section.
         </p>
+        <Card1 />
     </section>
+
+
+    <section id="Discretization Methods">
+        <h1>Discretization Methods</h1>
+        
+        <p>
+            ggg
+        </p>
+        <Card2 />
+    </section>
+
+
 </main>
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
-
+    
     :root {
         --color-bg: rgb(0, 0, 0);
         --color-text: rgb(255, 255, 255);

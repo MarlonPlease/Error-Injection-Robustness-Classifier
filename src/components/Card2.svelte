@@ -1,33 +1,25 @@
 <script>
-  import mpgImage from '../lib/mpg_leave_one_out-1.jpg';  // Adjust the path to where the image is located
-  import insImage from '../lib/ins_leave_one_out-1.jpg';
-
   let currentIndex = 0;
-
   const cards = [
     {
       title: "MPG Dataset",
       content: `Fig. 1 shows robustness ratios deteriorating as uncertainty increases. 
       We compare five cases using heat maps: the top two use the Naive method, while the rest correspond to different models and metrics. Left-side plots use Meyer’s method, and right-side plots use ZORRO. 
       ZORRO retains robustness better, staying above 50% even under extreme uncertainty, while Meyer drops to near zero. Among methods, Linear Regression with mean absolute error delivers the strongest attack on robustness, outperforming RandomForestRegressor.`,
-      image: mpgImage
-      
+      image: '../lib/mpg_leave_one_out-1.jpg'
     },
     {
       title: "Insurance Dataset",
-      content: `In Fig 2. , we see the results of different types of robustness test error injections against the
-naive randomization method`,
-      image: insImage // Replace with an actual image file in public/images/
+      content: `In Fig 2. , we see the results of different types of robustness test error injections against the naive randomization method`,
+      image: '../lib/ins_leave_one_out-1.jpg'
     }
   ];
 
   function scrollToCard(index) {
     currentIndex = index;
-    const cardElement = document.getElementById(`carousel-card-${index}`);
+    const cardElement = document.getElementById(`card2-carousel-card-${index}`);
     if (cardElement) {
-      setTimeout(() => {
-        cardElement.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-      }, 100);
+      cardElement.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
     }
   }
 </script>
@@ -82,9 +74,9 @@ naive randomization method`,
   }
 
   .card p {
-    color: black; /* Set the text color to black */
-    white-space: normal; /* Allow text to wrap */
-    word-wrap: break-word; /* Break long words to avoid overflow */
+    color: black;
+    white-space: normal;
+    word-wrap: break-word;
     margin: 0;
   }
 
@@ -96,7 +88,6 @@ naive randomization method`,
     margin-bottom: 20px;
     text-align: center;
   }
-
 
   .header-nav {
     display: flex;
@@ -122,18 +113,16 @@ naive randomization method`,
   }
 </style>
 
-<!-- Card Navigation Header -->
 <div class="header-nav">
   {#each cards as card, index}
-    <button on:click={() => scrollToCard(index)}>{card.title}</button>
+    <button type="button" on:click={() => scrollToCard(index)}>{card.title}</button>
   {/each}
 </div>
 
-<!-- Carousel -->
 <div class="carousel-container">
   <div class="carousel-wrapper" id="carousel-wrapper">
     {#each cards as card, index}
-      <div id="carousel-card-{index}" class="carousel-card">
+      <div id={`card2-carousel-card-${index}`} class="carousel-card">
         <div class="card">
           <div class="card-header">{card.title}</div>
           <p>{card.content}</p>
