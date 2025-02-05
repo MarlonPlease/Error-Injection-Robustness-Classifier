@@ -68,7 +68,8 @@ the discussion section.
         <h1>Discretization Methods</h1>
         
         <p>
-            ggg
+            The following are the results of utilizing the discretization method mentioned in section 2.2
+to analyze the robustness ratios under given parameters for the 2 datasets utilized in 3.1.1.
         </p>
         <Card2 />
     </section>

@@ -1,17 +1,26 @@
 <script>
+  import mpgImage from '../lib/mpg-Discretization-method-heatmap-1.png';  // Adjust the path to where the image is located
+  import insImage from '../lib/ins-Discretization-method-heatmap-1.png';
+
   let currentIndex = 0;
+
   const cards = [
     {
       title: "MPG Dataset",
-      content: `Fig. 1 shows robustness ratios deteriorating as uncertainty increases. 
-      We compare five cases using heat maps: the top two use the Naive method, while the rest correspond to different models and metrics. Left-side plots use Meyer’s method, and right-side plots use ZORRO. 
-      ZORRO retains robustness better, staying above 50% even under extreme uncertainty, while Meyer drops to near zero. Among methods, Linear Regression with mean absolute error delivers the strongest attack on robustness, outperforming RandomForestRegressor.`,
-      image: '../lib/mpg_leave_one_out-1.jpg'
+      content: `Fig. 3 shows that ZORRO parameters maintain better robustness ratios than Meyer parameters, though overall error injection effectiveness is similar to Leave One Out with minor differences. 
+      Under worst-case scenarios, robustness ratios vary across models and metrics without a clear pattern. 
+      For example, ZORRO on Linear Regression with mean absolute error has a similar robustness ratio to Random Forest with mean squared error.
+      The best error injection method for the mpg dataset appears to be Linear Regression with mean squared error, showing nearly a 10-percentage-point drop in robustness compared to other model combinations.`,
+      image: mpgImage
     },
     {
       title: "Insurance Dataset",
-      content: `In Fig 2. , we see the results of different types of robustness test error injections against the naive randomization method`,
-      image: '../lib/ins_leave_one_out-1.jpg'
+      content: `Fig. 4 shows that ZORRO's robustness ratios are much lower than those from the leave-one-out method in Fig. 2. 
+      Except for the 2.6 ratio from linear regression with mean absolute error—just slightly worse than the naive method—all other ratios fall far short.
+      Notably, the parameter-metric-model combinations that underperformed the naive method with leave one out (Fig. 2) also did so here.
+      Meanwhile, linear regression with mean absolute error, the only combination worse than the naive method in leave one out for insurance data, remains the sole underperformer.
+      Overall, the ratio performances have completely flipped between Fig. 2 and Fig. 4.`,
+      image: insImage 
     }
   ];
 
