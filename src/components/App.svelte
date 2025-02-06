@@ -1,5 +1,6 @@
 <script>
     import { onMount } from "svelte";
+    import RawCode from "./RawCode.svelte";
     import Card1 from "./Card1.svelte";
     import Card2 from "./Card2.svelte";
     import { writable } from "svelte/store";
@@ -60,6 +61,8 @@
             The heuristic pattern mining approach captures all possible predicates and inequalities, filtering out less relevant ones to refine error injection strategies. 
             This allows for a more effective robustness classifier that standardizes comparisons across datasets. 
         </p>
+        <RawCode  />
+        
         
         
 
