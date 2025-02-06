@@ -5,7 +5,7 @@
     import { writable } from "svelte/store";
 
     let currentSection = writable("Background"); // Reactive store
-    const sections = ["Background", "Leave One Out","Discretization Methods"];
+    const sections = ["TODO","Background", "Leave One Out","Discretization Methods"];
 
     onMount(() => {
         const observer = new IntersectionObserver(
@@ -40,13 +40,29 @@
         </ul>
     </nav>
 
-    <section id="Background" style="min-height: 60vh;">
-        <h1>Background</h1>
+    <section id="TODO" style="min-height: 50vh;">
+        <h1>TODO</h1>
         <p>
             This presentation focuses on exploring techniques and fill-in-word practices for ensuring data robustness.
             TODO: PATTERN MINING(how it works, results of pattern mining, lineplots heatmaps showcase, insurance is exception(super sensitive)), and pattern mining results,
             normalization(normalize all results togeter, which is more robust in respect to a parameter, predicting a specific column),  
         </p>
+    </section>
+
+    <section id="Background" style="min-height: 50vh;">
+        <h1>Background</h1>
+        <p>
+            Pattern mining in this study is used to identify key structures within a dataset, 
+            improving robustness measurement and error injection techniques. 
+            The proposed method builds on previous work by learning dataset patterns efficiently and consistently across different datasets. 
+            The process involves training a classifier, injecting errors into the data, applying robustness methods (favoring ZORRO over Meyer), 
+            and evaluating robustness through numerical ratios and visualizations. 
+            The heuristic pattern mining approach captures all possible predicates and inequalities, filtering out less relevant ones to refine error injection strategies. 
+            This allows for a more effective robustness classifier that standardizes comparisons across datasets. 
+        </p>
+        
+        
+
     </section>
 
     <section id="Leave One Out">
@@ -70,6 +86,11 @@ the discussion section.
         <p>
             The following are the results of utilizing the discretization method mentioned in section 2.2
 to analyze the robustness ratios under given parameters for the 2 datasets utilized in 3.1.1.
+
+ZORRO is more consistent in maintaining a high robustness ratio across all conditions, 
+while Meyer’s method shows greater variability, ranging from 100% to as low as 18.4%.
+This suggests significant weaknesses in Meyer’s approach under certain conditions.
+Based on the graph, ZORRO appears to be the more robust algorithm, consistently outperforming Meyer in robustness testing.
         </p>
         <Card2 />
     </section>
