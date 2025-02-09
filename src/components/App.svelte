@@ -3,6 +3,7 @@
     import RawCode from "./RawCode.svelte";
     import Card1 from "./Card1.svelte";
     import Card2 from "./Card2.svelte";
+    import ReferencesCard from './ReferencesCard.svelte';
     import { writable } from "svelte/store";
 
     let currentSection = writable("Background"); // Reactive store
@@ -123,10 +124,12 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
         <a href="https://github.com/rx-72/Dataset-Robustness-Classification-and-Error-Testing" 
            target="_blank" 
            rel="noopener noreferrer" 
-           style="color: yellow; font-weight: bold;">
+           style="color: rgb(255, 225, 0); font-weight: bold;">
            GitHub
         </a>.
     </p>
+
+    <ReferencesCard />
     </section>
 
 
@@ -153,6 +156,11 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+    }
+
+    a {
+    color: yellow;
+    font-weight: bold;
     }
 
     body {
@@ -228,4 +236,5 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
         text-align: left;
         padding-left: 20px;
     }
+    
 </style>
