@@ -6,7 +6,7 @@
   .yellow-card {
     background-color: rgb(255, 225, 0); /* Yellow background */
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 0px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
     color: black; /* Set the default font color to black */
@@ -48,7 +48,9 @@
     <li>
       Zhu, Jiongli, Su Feng, Boris Glavic, and Babak Salimi. 2024. 
       “Learning from Uncertain Data: From Possible Worlds to Possible Models.” 
-      <span style="font-style: italic;">[Link]</span>
+      <span style="font-style: italic;">
+    <a href="https://arxiv.org/abs/2405.18549" target="_blank">[Link]</a>
+  </span>
     </li>
   </ul>
 </div>

@@ -43,7 +43,7 @@
     </nav>
 
     <section id="TODO" style="min-height: 50vh;">
-        <h1>TODO</h1>
+        <div class="container"><h1>TODO</h1></div>
         <p>
             This presentation focuses on exploring techniques and fill-in-word practices for ensuring data robustness.
             TODO: PATTERN MINING(how it works, results of pattern mining, lineplots heatmaps showcase, insurance is exception(super sensitive)), and pattern mining results,
@@ -52,7 +52,7 @@
     </section>
 
     <section id="Background" style="min-height: 50vh;">
-        <h1>Background</h1>
+        <div class="container"><h1>Background</h1></div>
         <p>
             Pattern mining in this study is used to identify key structures within a dataset, 
             improving robustness measurement and error injection techniques. 
@@ -70,7 +70,7 @@
     </section>
 
     <section id="Leave One Out">
-        <h1>Leave One Out</h1>
+        <div class="container"><h1>Leave One Out</h1></div>
         
         <p>
             This following are the results of utilizing the leave one out method mentioned in section 2.1
@@ -85,7 +85,7 @@ the discussion section.
 
 
     <section id="Discretization Methods">
-        <h1>Discretization Methods</h1>
+        <div class="container"><h1>Discretization Methods</h1></div>
         
         <p>
             The following are the results of utilizing the discretization method mentioned in section 2.2
@@ -100,7 +100,7 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
     </section>
 
     <section id="Conclusion">
-        <h1>Conclusion</h1>
+        <div class="container"><h1>Conclusion</h1></div>
         
         <p>
             The f
@@ -108,7 +108,7 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
     </section>
 
     <section id="Contributions/Credits">
-        <h1>Contributions/Credits</h1>
+        <div class="container"><h1>Contributions/Credits</h1></div>
         
         <p>
             Joshua Huang led code optimization, setup, and test execution, assisted with report writing, and handled data gathering and cleaning.
@@ -225,8 +225,18 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
         font-weight: 300;
         line-height: 1.2;
         margin-bottom: 20px;
+        padding: 20px;
+        background-color: var(--nav-bg); /* Background */
+        color: var(--nav-text); /* Text color */
+        display: inline-block; /* Ensures the background wraps the text */
+        text-align: left; /* Aligns text inside */
+        border-radius: 0; /* Keeps it squared */
+        margin-left: 0; /* Ensures it aligns to the left */
+    }
+
+    /* If the parent is centering it, force left alignment */
+    .container {
         text-align: left;
-        padding-left: 20px;
     }
 
     p {
