@@ -6,7 +6,7 @@
     import { writable } from "svelte/store";
 
     let currentSection = writable("Background"); // Reactive store
-    const sections = ["TODO","Background", "Leave One Out","Discretization Methods"];
+    const sections = ["TODO","Background", "Leave One Out","Discretization Methods", "Conclusion", "Contributions/Credits"];
 
     onMount(() => {
         const observer = new IntersectionObserver(
@@ -96,6 +96,37 @@ This suggests significant weaknesses in Meyer’s approach under certain conditi
 Based on the graph, ZORRO appears to be the more robust algorithm, consistently outperforming Meyer in robustness testing.
         </p>
         <Card2 />
+    </section>
+
+    <section id="Conclusion">
+        <h1>Conclusion</h1>
+        
+        <p>
+            The f
+        </p>
+    </section>
+
+    <section id="Contributions/Credits">
+        <h1>Contributions/Credits</h1>
+        
+        <p>
+            Joshua Huang led code optimization, setup, and test execution, assisted with report writing, and handled data gathering and cleaning.
+            Marlon Garay contributed to code testing, report writing, and documentation, including the proposal, ethics, and schedule.
+            Both collaborated on the website's design, visuals, and overall direction.
+
+        </p>
+
+        <br>
+
+        <p>
+        View the project on 
+        <a href="https://github.com/rx-72/Dataset-Robustness-Classification-and-Error-Testing" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           style="color: yellow; font-weight: bold;">
+           GitHub
+        </a>.
+    </p>
     </section>
 
 
