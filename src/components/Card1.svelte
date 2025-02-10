@@ -1,7 +1,8 @@
 <script>
   import mpgImage from '../lib/mpg_leave_one_out-1.jpg';  // Adjust the path to where the image is located
   import insImage from '../lib/ins_leave_one_out-1.jpg';
-
+  import fireImage from '../lib/fire_leave_one_out-1.jpg';
+  import bostonImage from '../lib/boston_leave_one_out-1.jpg';
   let currentIndex = 0;
 
   const cards = [
@@ -18,7 +19,18 @@
       content: `In Fig 2. , we see the results of different types of robustness test error injections against the
 naive randomization method`,
       image: insImage // Replace with an actual image file in public/images/
+    },
+    {
+      title: "Fire Dataset",
+      content: ` `,
+      image: fireImage // Replace with an actual image file in public/images/
+    },
+    {
+      title: "Boston Dataset",
+      content: ` `,
+      image: bostonImage // Replace with an actual image file in public/images/
     }
+    
   ];
 
   function scrollToCard(index) {
