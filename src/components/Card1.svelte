@@ -63,7 +63,7 @@ naive randomization method`,
   .card {
     padding: 40px;
     background-color: rgb(255, 225, 0);
-    border-radius: 10px;
+    border-radius: 0px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     min-width: 350px;
