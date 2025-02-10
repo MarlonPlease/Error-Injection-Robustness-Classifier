@@ -4,11 +4,12 @@
     import RawCode2 from "./RawCode2.svelte";
     import Card1 from "./Card1.svelte";
     import Card2 from "./Card2.svelte";
+    import Card3 from "./Card3.svelte";
     import ReferencesCard from './ReferencesCard.svelte';
     import { writable } from "svelte/store";
 
     let currentSection = writable("Background"); // Reactive store
-    const sections = ["TODO","Background", "Leave One Out","Discretization Methods", "Conclusion", "Contributions/Credits"];
+    const sections = ["TODO","Background", "Leave One Out","Heuristic Histogram","Pattern Mining", "Conclusion", "Contributions/Credits"];
 
     onMount(() => {
         const observer = new IntersectionObserver(
@@ -91,8 +92,8 @@ the discussion section.
     </section>
 
 
-    <section id="Discretization Methods">
-        <div class="container"><h1>Discretization Methods</h1></div>
+    <section id="Heuristic Histogram">
+        <div class="container"><h1>Heuristic Histogram</h1></div>
 
         
         <p>
@@ -105,6 +106,16 @@ This suggests significant weaknesses in Meyer’s approach under certain conditi
 Based on the graph, ZORRO appears to be the more robust algorithm, consistently outperforming Meyer in robustness testing.
         </p>
         <Card2 />
+    </section>
+
+    <section id="Pattern Mining">
+        <div class="container"><h1>Pattern Mining</h1></div>
+
+        
+        <p>
+            Boston for now
+        </p>
+        <Card3 />
     </section>
 
     <section id="Conclusion">
