@@ -1,6 +1,7 @@
 <script>
     import { onMount } from "svelte";
     import RawCode from "./RawCode.svelte";
+    import RawCode2 from "./RawCode2.svelte";
     import Card1 from "./Card1.svelte";
     import Card2 from "./Card2.svelte";
     import ReferencesCard from './ReferencesCard.svelte';
@@ -62,7 +63,13 @@
             The heuristic pattern mining approach captures all possible predicates and inequalities, filtering out less relevant ones to refine error injection strategies. 
             This allows for a more effective robustness classifier that standardizes comparisons across datasets. 
         </p>
+        <br>
+        <h2>Method</h2>
         <RawCode  />
+
+        <br>
+        <h2>Heuristic Pattern Mining Influence Analysis</h2>
+        <RawCode2  />
         
         
         
@@ -86,6 +93,7 @@ the discussion section.
 
     <section id="Discretization Methods">
         <div class="container"><h1>Discretization Methods</h1></div>
+
         
         <p>
             The following are the results of utilizing the discretization method mentioned in section 2.2
@@ -232,6 +240,15 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
         text-align: left; /* Aligns text inside */
         border-radius: 0; /* Keeps it squared */
         margin-left: 0; /* Ensures it aligns to the left */
+    }
+
+    h2 {
+        font-size: 40px;
+        font-weight: 300;
+        line-height: 1.2;
+        margin-bottom: 20px;
+        text-align: left;
+        padding-left: 20px;
     }
 
     /* If the parent is centering it, force left alignment */
