@@ -1,6 +1,8 @@
 <script>
   import mpgImage from '../lib/mpg-Discretization-method-heatmap-1.png';  // Adjust the path to where the image is located
   import insImage from '../lib/ins-Discretization-method-heatmap-1.png';
+  import fireImage from '../lib/fire-Discretization-method-heatmap-1.png';
+  import bostonImage from '../lib/boston-Discretization-method-heatmap-1.png';
 
   let currentIndex = 0;
 
@@ -21,7 +23,18 @@
       Meanwhile, linear regression with mean absolute error, the only combination worse than the naive method in leave one out for insurance data, remains the sole underperformer.
       Overall, the ratio performances have completely flipped between Fig. 2 and Fig. 4.`,
       image: insImage 
+    },
+    {
+      title: "Fire Dataset",
+      content: ` `,
+      image: fireImage 
+    },
+    {
+      title: "Boston Dataset",
+      content: ` `,
+      image: bostonImage 
     }
+
   ];
 
   function scrollToCard(index) {
