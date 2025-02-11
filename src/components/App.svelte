@@ -20,7 +20,7 @@
                     }
                 });
             },
-            { threshold: 0.3 }
+            { threshold: 0.5 }
         );
 
         document.querySelectorAll("section").forEach((section) => {
@@ -29,6 +29,7 @@
     });
 
     function scrollToSection(section) {
+        
         document.getElementById(section).scrollIntoView({ behavior: "smooth" });
     }
 </script>
@@ -93,11 +94,11 @@ further explanation behind the reasoning of setting these parameters at these ke
 the discussion section.
         </p>
         <Card1 />
-    
+    </section>
 
 
     
-
+    <section id="Experiments">
         <h2>Heuristic Histogram</h2>
 
         
@@ -111,10 +112,10 @@ This suggests significant weaknesses in Meyer’s approach under certain conditi
 Based on the graph, ZORRO appears to be the more robust algorithm, consistently outperforming Meyer in robustness testing.
         </p>
         <Card2 />
-    
+    </section>
 
     
-
+    <section id="Experiments">
          <h2>Pattern Mining</h2>
 
         
@@ -125,7 +126,7 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
 
     </section>
 
-    <section id="Conclusion">
+    <section id="Conclusion" style="min-height: 60vh;">
         <div class="container"><h1>Conclusion</h1></div>
         
         <p>
