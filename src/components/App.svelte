@@ -9,7 +9,7 @@
     import { writable } from "svelte/store";
 
     let currentSection = writable("Background"); // Reactive store
-    const sections = ["TODO","Background", "Experiments1","Experiments2","Experiments3", "Conclusion", "Contributions/Credits"];
+    const sections = ["TODO","Background", "Experiments", "Conclusion", "Contributions/Credits"];
 
     onMount(() => {
         const observer = new IntersectionObserver(
@@ -20,7 +20,7 @@
                     }
                 });
             },
-            { threshold: 0.5 }
+            { threshold: 0.3 }
         );
 
         document.querySelectorAll("section").forEach((section) => {
@@ -74,11 +74,12 @@
         
         
         
-
+    <br>
     </section>
+    <br>
 
-    <section id="Experiments1">
-        <div class="container"><h1>Experiments1</h1></div>
+    <section id="Experiments">
+        <div class="container"><h1>Experiments</h1></div>
 
         <h2>Leave One Out</h2>
 
@@ -92,11 +93,10 @@ further explanation behind the reasoning of setting these parameters at these ke
 the discussion section.
         </p>
         <Card1 />
-    </section>
+    
 
 
-    <section id="Experiments2">
-        <div class="container"><h1>Experiments2</h1></div>
+    
 
         <h2>Heuristic Histogram</h2>
 
@@ -111,10 +111,9 @@ This suggests significant weaknesses in Meyer’s approach under certain conditi
 Based on the graph, ZORRO appears to be the more robust algorithm, consistently outperforming Meyer in robustness testing.
         </p>
         <Card2 />
-    </section>
+    
 
-    <section id="Experiments3">
-        <div class="container"><h1>Experiments3</h1></div>
+    
 
          <h2>Pattern Mining</h2>
 
@@ -123,6 +122,7 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
             Boston for now
         </p>
         <Card3 />
+
     </section>
 
     <section id="Conclusion">
