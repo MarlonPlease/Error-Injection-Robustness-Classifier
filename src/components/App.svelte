@@ -9,7 +9,7 @@
     import { writable } from "svelte/store";
 
     let currentSection = writable("Background"); // Reactive store
-    const sections = ["TODO","Background", "Leave One Out","Heuristic Histogram","Pattern Mining", "Conclusion", "Contributions/Credits"];
+    const sections = ["TODO","Background", "Experiments1","Experiments2","Experiments3", "Conclusion", "Contributions/Credits"];
 
     onMount(() => {
         const observer = new IntersectionObserver(
@@ -77,8 +77,11 @@
 
     </section>
 
-    <section id="Leave One Out">
-        <div class="container"><h1>Leave One Out</h1></div>
+    <section id="Experiments1">
+        <div class="container"><h1>Experiments1</h1></div>
+
+        <h2>Leave One Out</h2>
+
         
         <p>
             This following are the results of utilizing the leave one out method mentioned in section 2.1
@@ -92,8 +95,10 @@ the discussion section.
     </section>
 
 
-    <section id="Heuristic Histogram">
-        <div class="container"><h1>Heuristic Histogram</h1></div>
+    <section id="Experiments2">
+        <div class="container"><h1>Experiments2</h1></div>
+
+        <h2>Heuristic Histogram</h2>
 
         
         <p>
@@ -108,8 +113,10 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
         <Card2 />
     </section>
 
-    <section id="Pattern Mining">
-        <div class="container"><h1>Pattern Mining</h1></div>
+    <section id="Experiments3">
+        <div class="container"><h1>Experiments3</h1></div>
+
+         <h2>Pattern Mining</h2>
 
         
         <p>

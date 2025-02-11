@@ -7,6 +7,11 @@
 
   const cards = [
     {
+      title: "Boston Dataset",
+      content: ` `,
+      image: bostonImage // Replace with an actual image file in public/images/
+    },
+    {
       title: "MPG Dataset",
       content: `Fig. 1 shows robustness ratios deteriorating as uncertainty increases. 
       We compare five cases using heat maps: the top two use the Naive method, while the rest correspond to different models and metrics. Left-side plots use Meyer’s method, and right-side plots use ZORRO. 
@@ -24,11 +29,6 @@ naive randomization method`,
       title: "Fire Dataset",
       content: ` `,
       image: fireImage // Replace with an actual image file in public/images/
-    },
-    {
-      title: "Boston Dataset",
-      content: ` `,
-      image: bostonImage // Replace with an actual image file in public/images/
     }
     
   ];

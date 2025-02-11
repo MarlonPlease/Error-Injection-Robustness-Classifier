@@ -8,6 +8,11 @@
 
   const cards = [
     {
+      title: "Boston Dataset",
+      content: ` `,
+      image: bostonImage 
+    },
+    {
       title: "MPG Dataset",
       content: `Fig. 3 shows that ZORRO parameters maintain better robustness ratios than Meyer parameters, though overall error injection effectiveness is similar to Leave One Out with minor differences. 
       Under worst-case scenarios, robustness ratios vary across models and metrics without a clear pattern. 
@@ -28,11 +33,6 @@
       title: "Fire Dataset",
       content: ` `,
       image: fireImage 
-    },
-    {
-      title: "Boston Dataset",
-      content: ` `,
-      image: bostonImage 
     }
 
   ];
