@@ -5,6 +5,7 @@
     import Card1 from "./Card1.svelte";
     import Card2 from "./Card2.svelte";
     import Card3 from "./Card3.svelte";
+    import Card4 from "./Card4.svelte";
     import ReferencesCard from './ReferencesCard.svelte';
     import { writable } from "svelte/store";
 
@@ -126,6 +127,19 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
             ZORRO appears to be the more robust algorithm, consistently outperforming Meyer in robustness.
         </p>
         <Card3 />
+
+    </section>
+
+    <section id="Experiments">
+         <h2>Normalization</h2>
+
+        
+        <p>
+            We utilized normalization across methods and datasets to determine
+            the most effective error injection for each dataset along with
+            the comparison of robustness across datasets.
+        </p>
+        <Card4 />
 
     </section>
 
