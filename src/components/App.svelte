@@ -10,7 +10,7 @@
     import { writable } from "svelte/store";
 
     let currentSection = writable("Background"); // Reactive store
-    const sections = ["TODO","Background", "Experiments", "Conclusion", "Contributions/Credits"];
+    const sections = ["Background", "Experiments", "Conclusion", "Contributions/Credits"];
 
     onMount(() => {
         const observer = new IntersectionObserver(
@@ -46,13 +46,10 @@
         </ul>
     </nav>
 
-    <section id="TODO" style="min-height: 50vh;">
-        <div class="container"><h1>TODO</h1></div>
-        <p>
-            This presentation focuses on exploring techniques and fill-in-word practices for ensuring data robustness.
-            TODO: PATTERN MINING(how it works, results of pattern mining, lineplots heatmaps showcase, insurance is exception(super sensitive)), and pattern mining results,
-            normalization(normalize all results togeter, which is more robust in respect to a parameter, predicting a specific column),  
-        </p>
+    <section id="TODO" style="min-height: 10vh;">
+        <div class="container">
+            <h1 class="custom-title">Error Injection Robustness Classifier</h1>
+        </div>
     </section>
 
     <section id="Background" style="min-height: 50vh;">
@@ -268,6 +265,16 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
         min-height: 40vh; /* Adjust for better scrolling detection */
     }
 
+    .custom-title {
+        font-size: 50px;
+        font-weight: bold;
+        color: black;
+        text-transform: uppercase;
+        background: linear-gradient(to right, white, rgb(255, 255, 255));
+        padding: 10px 20px;
+        display: inline-block;
+    }
+
     h1 {
         font-size: 40px;
         font-weight: 300;
@@ -295,6 +302,8 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
     .container {
         text-align: left;
     }
+
+
 
     p {
         font-size: 20px;
