@@ -120,7 +120,9 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
 
         
         <p>
-            Boston for now
+            we utilized a pattern mining approach to identify all 
+            possible patterns in a given dataset before filtering
+            out the best patterns for error injection.
         </p>
         <Card3 />
 
@@ -130,7 +132,11 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
         <div class="container"><h1>Conclusion</h1></div>
         
         <p>
-            The f
+            We've showcased the usability of our model and how it can be used to gain
+            an idea of the robustness of our chosen dataset compared to other sets.
+            The next steps to further improve this work could 
+            involve better scaling of robustness or exploring the
+            specific numerical differences in robustness between sets.
         </p>
     </section>
 

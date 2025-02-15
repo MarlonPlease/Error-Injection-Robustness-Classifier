@@ -8,7 +8,16 @@
   const cards = [
     {
       title: "Boston Dataset",
-      content: ` `,
+      content: `The figure shows robustness ratios deteriorating as uncertainty increases. 
+      We compare five cases using heat maps: the top two use the Naive method, 
+      while the rest correspond to different models and metrics. 
+      Left-side plots use Meyer’s method, and right-side plots use ZORRO. 
+      ZORRO demonstrates superior robustness in handling uncertain data compared to Meyer et al.’s method across all tested conditions.
+      The ZORRO methods staying above 11% even under extreme uncertainty, 
+      while Meyer drops to near zero. 
+      Among methods, ZORRO Leave-one-out(LOO) with Random Forest and mean absolute error delivers the strongest attack on robustness with 11.8%.
+      All other ZORRO methods show similar scores, while ZORRO Leave-one-out(LOO) with Random Forest and mean squared error was the worst performing.
+       `,
       image: bostonImage // Replace with an actual image file in public/images/
     },
     {
