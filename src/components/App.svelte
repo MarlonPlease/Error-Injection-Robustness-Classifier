@@ -120,9 +120,10 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
 
         
         <p>
-            we utilized a pattern mining approach to identify all 
+            We utilized a pattern mining approach to identify all 
             possible patterns in a given dataset before filtering
             out the best patterns for error injection.
+            ZORRO appears to be the more robust algorithm, consistently outperforming Meyer in robustness.
         </p>
         <Card3 />
 

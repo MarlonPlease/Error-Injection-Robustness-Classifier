@@ -9,7 +9,12 @@
   const cards = [
     {
       title: "Boston Dataset",
-      content: ` `,
+      content: `We compare five cases using heat maps: the top two use the Naive method, while the rest correspond to different models and metrics. 
+      
+      Left-side plots use Meyer’s method, and right-side plots use ZORRO. 
+      The figure shows that ZORRO parameters maintain better robustness ratios than Meyer parameters, though the overall error injection effectiveness is slightly worse when comparing ZORRO Leave-One-Out for the same Boston dataset.
+
+      The best error injection method for the Boston dataset appears to be ZORRO Linear Regression Mean Squared Error Cut, which outperforms most ZORRO Leave-One-Out implementations.`,
       image: bostonImage 
     },
     {

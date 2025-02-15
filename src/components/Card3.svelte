@@ -9,7 +9,10 @@
     
     {
       title: "Boston Dataset",
-      content: ` `,
+      content: `We compare five cases using heat maps: the top two use the Naive method, while the rest correspond to different models and metrics. 
+      Left-side plots use Meyer’s method, and right-side plots use ZORRO. 
+      The figure shows that ZORRO parameters maintain better robustness ratios than Meyer parameters.
+      Pattern 1 has the best score at 8.8%. This is the lowest score among all patterns. Pattern 1 seems to be better than all Leave-One-Out appraches, and all Heuristic Histogram approaches.`,
       image: bostonImage 
     }
 
