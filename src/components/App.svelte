@@ -62,6 +62,7 @@
             and evaluating robustness through numerical ratios and visualizations. 
             The heuristic pattern mining approach captures all possible predicates and inequalities, filtering out less relevant ones to refine error injection strategies. 
             This allows for a more effective robustness classifier that standardizes comparisons across datasets. 
+            
         </p>
         <br>
         <h2>Method</h2>
