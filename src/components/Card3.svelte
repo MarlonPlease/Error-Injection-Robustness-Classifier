@@ -2,6 +2,7 @@
   
   
   import bostonImage from '../lib/Pattern_Testing_heatmap_BOS.png';
+  import boston_best from '../lib/boston_best.png';
 
   let currentIndex = 0;
 
@@ -13,7 +14,10 @@
       Left-side plots use Meyer’s method, and right-side plots use ZORRO. 
       The figure shows that ZORRO parameters maintain better robustness ratios than Meyer parameters.
       Pattern 1 has the best score at 8.8%. This is the lowest score among all patterns. Pattern 1 seems to be better than all Leave-One-Out appraches, and all Heuristic Histogram approaches.`,
-      image: bostonImage 
+      image: bostonImage,
+
+      content2: "Best patterns mined and found",
+      image2: boston_best
     }
 
   ];
@@ -125,11 +129,13 @@
 <div class="carousel-container">
   <div class="carousel-wrapper" id="carousel-wrapper">
     {#each cards as card, index}
-      <div id={`card3-carousel-card-${index}`} class="carousel-card">
+      <div id={`card4-carousel-card-${index}`} class="carousel-card">
         <div class="card">
           <div class="card-header">{card.title}</div>
           <p>{card.content}</p>
           <img src={card.image} alt={card.title} />
+          <p>{card.content2}</p>
+          <img src={card.image2} alt={card.title} />
         </div>
       </div>
     {/each}
