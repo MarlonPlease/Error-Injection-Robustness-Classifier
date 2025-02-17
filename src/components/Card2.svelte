@@ -1,5 +1,5 @@
 <script>
-  import mpgImage from '../lib/mpg-Discretization-method-heatmap-1.png';  // Adjust the path to where the image is located
+  import mpgImage from '../lib/heuristic_histogram_mpg.png';  // Adjust the path to where the image is located
   import insImage from '../lib/ins-Discretization-method-heatmap-1.png';
   import fireImage from '../lib/fire-Discretization-method-heatmap-1.png';
   import bostonImage from '../lib/boston-Discretization-method-heatmap-1.png';
