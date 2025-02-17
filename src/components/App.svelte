@@ -143,7 +143,7 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
     </section>
 
     <section id="Experiments">
-         <h2>Multirobustness Linplot Zorro</h2>
+         <h2>Pattern Mining Robustness Diminishing</h2>
 
         
         <p>
