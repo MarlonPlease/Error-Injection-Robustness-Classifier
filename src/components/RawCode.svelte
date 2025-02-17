@@ -19,16 +19,23 @@ Tuning Parameters
 
 <style>
   pre {
-    background-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0);
     color: rgb(255, 255, 255);
     padding: 1rem;
     border-radius: 8px;
     overflow-x: auto;
-    font-family: "Courier New", monospace;
-    font-size: 18px;
+    font-family: 'Merriweather', serif;
+    
+    
     white-space: pre-wrap;
     max-width: 1100px; /* Adjust width as needed */
     width: 100%;
     margin: 0 auto; /* Centers the block */
+
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.6;
+    text-align: left;
+    padding-left: 20px;
   }
 </style>

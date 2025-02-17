@@ -67,10 +67,14 @@
         </p>
         <br>
         <h2>Method</h2>
+        
+
+
         <RawCode  />
 
         <br>
         <h2>Heuristic Pattern Mining Influence Analysis</h2>
+        
         <RawCode2  />
         
         
@@ -316,6 +320,9 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
         margin-bottom: 20px;
         text-align: left;
         padding-left: 20px;
+
+        
+        
     }
 
     /* If the parent is centering it, force left alignment */
