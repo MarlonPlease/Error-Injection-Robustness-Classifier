@@ -130,6 +130,20 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
     </section>
 
     <section id="Experiments">
+         <h2>Pattern Mining Robustness Diminishing</h2>
+
+        
+        <p>
+            We’ve plotted the diminishment of each pattern per dataset against the 
+            dimishment of the naive method. 
+            We also included dotted lines to showcase which method would reach the
+            bad level of robustness ratio the earliest.
+        </p>
+        <Card5 />
+
+    </section>
+
+    <section id="Experiments">
          <h2>Normalization</h2>
 
         
@@ -142,16 +156,7 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
 
     </section>
 
-    <section id="Experiments">
-         <h2>Pattern Mining Robustness Diminishing</h2>
-
-        
-        <p>
-            test
-        </p>
-        <Card5 />
-
-    </section>
+    
 
 
 
