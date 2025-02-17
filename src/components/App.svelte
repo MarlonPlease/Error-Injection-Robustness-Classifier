@@ -67,15 +67,45 @@
         </p>
         <br>
         <h2>Method</h2>
-        
+        <p style="white-space: pre-wrap;">
+
+We’ll use the following baseline for our classifier:
+1. Train-test split the data that we want to gain a robustness measure on (80% train, 20% test).
+2. Inject a specified percentage of targeted points in the y labels of the train data.
+3. Utilize a chosen method (Meyer or ZORRO) to attempt to clean the error injection.
+4. Evaluate robustness based on how well the cleaned train data performs on the test data.
+5. Visualize findings using heat maps and line plots.
+
+Tuning Parameters
+
+- Uncertainty radius: The percentage of uncertainty injected into all targeted indices.
+- Robustness radius: The range within which a perturbed point is still considered robust.
+- Uncertainty Injection Percentage: The portion of the dataset affected by error injection.
+  
+         </p>
 
 
-        <RawCode  />
+        <!-- <RawCode  /> -->
 
         <br>
         <h2>Heuristic Pattern Mining Influence Analysis</h2>
+        <p style="white-space: pre-wrap;">
+
+1. Each dataset feature has multiple possible patterns representing a sample size (e.g., temperature &lt 100°C covering 50% of the dataset).
+2. We generate single-predicate patterns based on unique feature values in each column (e.g., for value "100" in a column, we create >, =, &lt conditions). This results in 3 * nk * k patterns, where nk is the number of unique values per column and k is the number of columns. We may bin values if uniqueness is too high.
+3. We combine single-predicate patterns across different columns (e.g., temp > 100 with area &lt 50) but not within the same column. The max combination size is the number of columns, though we focus on 2-3 column combinations.
+4. We filter pattern combinations using statistics like mean squared error, mean absolute error, or correlation to the target variable (y_train) to identify the most effective patterns.
+5. The final set of patterns undergoes robustness testing with fixed parameters to simulate worst-case scenarios. Patterns with the lowest robustness ratio are selected as the most effective for representing the data and inducing label errors.
+
+After identifying the top patterns for representation and error injection:
+
+- We run ZORRO tests using the indexes these patterns capture for further analysis.
+- We compare these results with prior methods, such as the naive approach and leave-one-out method from our previous paper.
+- While pattern mining takes longer to determine the optimal indexes for maximum error, it proves to be a more effective approach—especially for datasets less sensitive to error injection.
+
+         </p>
         
-        <RawCode2  />
+        <!-- <RawCode2  /> -->
         
         
         
