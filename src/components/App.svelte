@@ -6,6 +6,7 @@
     import Card2 from "./Card2.svelte";
     import Card3 from "./Card3.svelte";
     import Card4 from "./Card4.svelte";
+    import Card5 from "./Card5.svelte";
     import ReferencesCard from './ReferencesCard.svelte';
     import { writable } from "svelte/store";
 
@@ -140,6 +141,19 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
         <Card4 />
 
     </section>
+
+    <section id="Experiments">
+         <h2>test</h2>
+
+        
+        <p>
+            test
+        </p>
+        <Card5 />
+
+    </section>
+
+
 
     <section id="Conclusion" style="min-height: 60vh;">
         <div class="container"><h1>Conclusion</h1></div>
