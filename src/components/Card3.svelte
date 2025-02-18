@@ -2,6 +2,9 @@
   
   
   import bostonImage from '../lib/Pattern_Testing_heatmap_BOS.png';
+  import mpgImage from '../lib/Pattern_Testing_heatmap_MPG.png';
+  import insImage from '../lib/Pattern_testing_heatmap_ins.png';
+  import fireImage from '../lib/Pattern_Testing_heatmap_fire.png';
   import boston_best from '../lib/boston_best.png';
 
   let currentIndex = 0;
@@ -18,7 +21,32 @@
 
       content2: "Best patterns mined and found",
       image2: boston_best
-    }
+    },
+    {
+      title: "MPG Dataset",
+      content: `test`,
+      image: mpgImage,
+
+      content2: "test",
+      image2: boston_best
+    },
+    {
+      title: "Insurance Dataset",
+      content: `test`,
+      image: insImage,
+
+      content2: "test",
+      image2: boston_best
+    },
+    {
+      title: "Fire Dataset",
+      content: `test`,
+      image: fireImage,
+
+      content2: "test",
+      image2: boston_best
+    },
+
 
   ];
 
