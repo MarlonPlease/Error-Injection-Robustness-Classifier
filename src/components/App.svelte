@@ -80,12 +80,9 @@
 
         
         <p>
-            This following are the results of utilizing the leave one out method mentioned in section 2.1
-to analyze the robustness ratios under given parameters for the below 2 datasets. Note per
-section 2.3, robustness radius is declared for both datasets already with the MPG dataset
-using a parameter of 2 and the insurance dataset using a parameter of 500. We’ll go into
-further explanation behind the reasoning of setting these parameters at these key values in
-the discussion section.
+            We rank indices by the training results on mean squared or
+            mean absolute error after a given indice removal and 
+            error injection based upon said ranking
         </p>
         <Card1 />
     </section>
@@ -97,13 +94,10 @@ the discussion section.
 
         
         <p>
-            The following are the results of utilizing the discretization method mentioned in section 2.2
-to analyze the robustness ratios under given parameters for the 2 datasets utilized in 3.1.1.
-
-ZORRO is more consistent in maintaining a high robustness ratio across all conditions, 
-while Meyer’s method shows greater variability, ranging from 100% to as low as 18.4%.
-This suggests significant weaknesses in Meyer’s approach under certain conditions.
-Based on the graph, ZORRO appears to be the more robust algorithm, consistently outperforming Meyer in robustness testing.
+            We running multiple binning methods on the most correlated
+            feature to prediction label per dataset, 
+            before running error injection on target indices 
+            based on hierarchy of largest bin count
         </p>
         <Card2 />
     </section>
@@ -118,6 +112,10 @@ Based on the graph, ZORRO appears to be the more robust algorithm, consistently 
             possible patterns in a given dataset before filtering
             out the best patterns for error injection.
             ZORRO appears to be the more robust algorithm, consistently outperforming Meyer in robustness.
+
+            <br>
+
+            Note this is a more advanced version of the heuristic histogram method.
         </p>
         <Card3 />
 
