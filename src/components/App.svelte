@@ -94,7 +94,7 @@
 
         
         <p>
-            We running multiple binning methods on the most correlated
+            We run multiple binning methods on the most correlated
             feature to prediction label per dataset, 
             before running error injection on target indices 
             based on hierarchy of largest bin count

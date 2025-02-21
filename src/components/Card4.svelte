@@ -4,6 +4,11 @@
   import boston_normalized from '../lib/boston_normalized.png';
   import boston_compared from '../lib/boston_compared.png';
 
+  import mpg_normalized from '../lib/Normalization_MPG.png';
+  import ins_normalized from '../lib/Normalization_INS.png';
+  import fire_normalized from '../lib/Normalization_Fire.png';
+
+
   let currentIndex = 0;
 
   const cards = [
@@ -13,7 +18,28 @@
     image: boston_normalized,
     content2: "Comparing the Robustness of “Boston” to other datasets",
     image2: boston_compared
-  }
+  },
+  {
+    title: "MPG Dataset",
+    content: "Method comparisons across the Boston Dataset",
+    image: mpg_normalized,
+    content2: ""
+    
+  },
+
+  {
+    title: "Insurance Dataset",
+    content: "Method comparisons across the Boston Dataset",
+    image: ins_normalized,
+    content2: ""
+  },
+  {
+    title: "Fire Dataset",
+    content: "Method comparisons across the Boston Dataset",
+    image: fire_normalized,
+    content2: ""
+  },
+
 ];
 
   function scrollToCard(index) {
