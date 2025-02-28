@@ -111,6 +111,79 @@
     background-color: black;
     color: rgb(255, 225, 0);
   }
+  @media (max-width: 768px) {
+  .carousel-wrapper {
+    width: 95%; /* Make carousel take most of the screen */
+    padding: 10px 0;
+  }
+
+  .carousel-card {
+    min-width: 90%; /* Ensure cards fit within screen */
+  }
+
+  .card {
+    padding: 20px; /* Reduce padding for smaller screens */
+    min-width: 300px; /* Reduce card width */
+  }
+
+  .card-header {
+    font-size: 1.4em; /* Reduce title size */
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    font-size: 14px; /* Smaller text for readability */
+  }
+
+  .card img {
+    max-width: 100%; /* Ensure images are fully visible */
+  }
+
+  .header-nav {
+    flex-wrap: wrap; /* Allow buttons to stack if needed */
+    gap: 10px;
+  }
+
+  .header-nav button {
+    font-size: 14px;
+    padding: 8px 15px; /* Reduce padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-wrapper {
+    width: 100%;
+    padding: 5px 0;
+  }
+
+  .carousel-card {
+    min-width: 100%; /* Each card fully occupies the screen */
+  }
+
+  .card {
+    min-width: 250px;
+    padding: 15px;
+  }
+
+  .card-header {
+    font-size: 1.2em;
+  }
+
+  .card p {
+    font-size: 12px;
+  }
+
+  .header-nav {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 5px;
+  }
+
+  .header-nav button {
+    width: 90%; /* Full-width buttons */
+    font-size: 12px;
+  }
+}
+
 </style>
 
 <div class="header-nav">
