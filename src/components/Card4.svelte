@@ -18,7 +18,16 @@
     image: boston_normalized,
     content2: "Comparing the Robustness of “Boston” to other datasets",
     image2: boston_compared
+  },
+  {
+    title: "MPG Dataset",
+    content: "Method comparisons across the Boston Dataset",
+    image: mpg_normalized
   }
+
+
+
+
 
 ];
 

@@ -84,6 +84,7 @@
             mean absolute error after a given indice removal and 
             error injection based upon said ranking
         </p>
+        <br>
         <Card1 />
     </section>
 
@@ -99,6 +100,7 @@
             before running error injection on target indices 
             based on hierarchy of largest bin count
         </p>
+        <br>
         <Card2 />
     </section>
 
@@ -117,6 +119,7 @@
 
             Note this is a more advanced version of the heuristic histogram method.
         </p>
+        <br>
         <Card3 />
 
     </section>
@@ -131,6 +134,7 @@
             We also included dotted lines to showcase which method would reach the
             bad level of robustness ratio the earliest.
         </p>
+        <br>
         <Card5 />
 
     </section>
@@ -144,6 +148,7 @@
             the most effective error injection for each dataset along with
             the comparison of robustness across datasets.
         </p>
+        <br>
         <Card4 />
 
     </section>
