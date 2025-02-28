@@ -347,7 +347,7 @@
     }
 
     nav li {
-        font-size: 16px; /* Smaller font for mobile */
+        font-size: 14px; /* Smaller font for mobile */
         padding: 5px 15px;
     }
 
