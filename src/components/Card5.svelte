@@ -11,21 +11,6 @@
       title: "Boston Dataset",
       content: ` `,
       image: bostonImage 
-    },
-    {
-      title: "MPG Dataset",
-      content: ` `,
-      image: mpgImage
-    },
-    {
-      title: "Insurance Dataset",
-      content: ` `,
-      image: insImage 
-    },
-    {
-      title: "Fire Dataset",
-      content: ` `,
-      image: fireImage 
     }
 
   ];

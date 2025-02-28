@@ -25,32 +25,7 @@
 
       content2: "Best patterns mined and found",
       image2: bostonPatterns
-    },
-    {
-      title: "MPG Dataset",
-      content: `test`,
-      image: mpgImage,
-
-      content2: "test",
-      image2: mpgPatterns
-    },
-    {
-      title: "Insurance Dataset",
-      content: `test`,
-      image: insImage,
-
-      content2: "test",
-      image2: insPatterns
-    },
-    {
-      title: "Fire Dataset",
-      content: `test`,
-      image: fireImage,
-
-      content2: "test",
-      image2: firePatterns
-    },
-
+    }
 
   ];
 

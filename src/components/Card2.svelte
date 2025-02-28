@@ -16,29 +16,8 @@
 
       The best error injection method for the Boston dataset appears to be ZORRO Linear Regression Mean Squared Error Cut, which outperforms most ZORRO Leave-One-Out implementations.`,
       image: bostonImage 
-    },
-    {
-      title: "MPG Dataset",
-      content: `Fig. 3 shows that ZORRO parameters maintain better robustness ratios than Meyer parameters, though overall error injection effectiveness is similar to Leave One Out with minor differences. 
-      Under worst-case scenarios, robustness ratios vary across models and metrics without a clear pattern. 
-      For example, ZORRO on Linear Regression with mean absolute error has a similar robustness ratio to Random Forest with mean squared error.
-      The best error injection method for the mpg dataset appears to be Linear Regression with mean squared error, showing nearly a 10-percentage-point drop in robustness compared to other model combinations.`,
-      image: mpgImage
-    },
-    {
-      title: "Insurance Dataset",
-      content: `Fig. 4 shows that ZORRO's robustness ratios are much lower than those from the leave-one-out method in Fig. 2. 
-      Except for the 2.6 ratio from linear regression with mean absolute error—just slightly worse than the naive method—all other ratios fall far short.
-      Notably, the parameter-metric-model combinations that underperformed the naive method with leave one out (Fig. 2) also did so here.
-      Meanwhile, linear regression with mean absolute error, the only combination worse than the naive method in leave one out for insurance data, remains the sole underperformer.
-      Overall, the ratio performances have completely flipped between Fig. 2 and Fig. 4.`,
-      image: insImage 
-    },
-    {
-      title: "Fire Dataset",
-      content: ` `,
-      image: fireImage 
     }
+    
 
   ];
 

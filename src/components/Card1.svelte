@@ -19,25 +19,6 @@
       All other ZORRO methods show similar scores, while ZORRO Leave-one-out(LOO) with Random Forest and mean squared error was the worst performing.
        `,
       image: bostonImage // Replace with an actual image file in public/images/
-    },
-    {
-      title: "MPG Dataset",
-      content: `Fig. 1 shows robustness ratios deteriorating as uncertainty increases. 
-      We compare five cases using heat maps: the top two use the Naive method, while the rest correspond to different models and metrics. Left-side plots use Meyer’s method, and right-side plots use ZORRO. 
-      ZORRO retains robustness better, staying above 50% even under extreme uncertainty, while Meyer drops to near zero. Among methods, Linear Regression with mean absolute error delivers the strongest attack on robustness, outperforming RandomForestRegressor.`,
-      image: mpgImage
-      
-    },
-    {
-      title: "Insurance Dataset",
-      content: `In Fig 2. , we see the results of different types of robustness test error injections against the
-naive randomization method`,
-      image: insImage // Replace with an actual image file in public/images/
-    },
-    {
-      title: "Fire Dataset",
-      content: ` `,
-      image: fireImage // Replace with an actual image file in public/images/
     }
     
   ];
