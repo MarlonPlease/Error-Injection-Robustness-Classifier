@@ -343,7 +343,7 @@
 
     nav ul {
         flex-direction: column;
-        gap: 10px;
+        gap: 5px;
     }
 
     nav li {
