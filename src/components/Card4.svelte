@@ -24,11 +24,19 @@
     content: "Method comparisons across the Boston Dataset",
     image: mpg_normalized,
     content2: ""
-  }
-
-
-
-
+  },
+  {
+    title: "Insurance Dataset",
+    content: "Method comparisons across the Boston Dataset",
+    image: ins_normalized,
+    content2: ""
+  },
+  {
+    title: "Fire Dataset",
+    content: "Method comparisons across the Boston Dataset",
+    image: fire_normalized,
+    content2: ""
+  },
 
 ];
 
