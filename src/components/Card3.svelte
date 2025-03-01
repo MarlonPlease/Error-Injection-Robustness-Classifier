@@ -1,5 +1,5 @@
 <script>
-  
+  import { onMount } from "svelte";
   
   import bostonImage from '../lib/Pattern_Testing_heatmap_BOS.png';
   import mpgImage from '../lib/Pattern_Testing_heatmap_MPG.png';
@@ -12,6 +12,7 @@
   import firePatterns from '../lib/Fire_Patterns.png';
 
   let currentIndex = 0;
+  let isMobile = false;
 
   const cards = [
     
@@ -25,17 +26,53 @@
 
       content2: "Best patterns mined and found",
       image2: bostonPatterns
+    },
+    {
+      title: "MPG Dataset",
+      content: `test`,
+      image: mpgImage,
+      content2: "test",
+      image2: mpgPatterns
+    },
+    {
+      title: "Insurance Dataset",
+      content: `test`,
+      image: insImage,
+      content2: "test",
+      image2: insPatterns
+    },
+    {
+      title: "Fire Dataset",
+      content: `test`,
+      image: fireImage,
+      content2: "test",
+      image2: firePatterns
     }
 
   ];
 
-  function scrollToCard(index) {
+
+    function scrollToCard(index) {
     currentIndex = index;
     const cardElement = document.getElementById(`card3-carousel-card-${index}`);
     if (cardElement) {
       cardElement.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
     }
   }
+
+  function nextCard() {
+    currentIndex = (currentIndex + 1) % cards.length;
+    scrollToCard(currentIndex);
+  }
+
+  onMount(() => {
+    function updateScreenSize() {
+      isMobile = window.innerWidth <= 480;
+    }
+
+    updateScreenSize();
+    window.addEventListener("resize", updateScreenSize);
+  });
 </script>
 
 <style>
@@ -125,86 +162,53 @@
     background-color: black;
     color: rgb(255, 225, 0);
   }
-  @media (max-width: 768px) {
-  .carousel-wrapper {
-    width: 95%; /* Make carousel take most of the screen */
-    padding: 10px 0;
-  }
 
-  .carousel-card {
-    min-width: 90%; /* Ensure cards fit within screen */
-  }
+  @media (max-width: 480px) {
+    .carousel-wrapper {
+      width: 100%;
+      padding: 5px 0;
+    }
 
-  .card {
-    padding: 20px; /* Reduce padding for smaller screens */
-    min-width: 300px; /* Reduce card width */
-  }
+    .carousel-card {
+      min-width: 100%;
+    }
 
-  .card-header {
-    font-size: 1.4em; /* Reduce title size */
-    margin-bottom: 10px;
-  }
+    .card {
+      min-width: 250px;
+      padding: 15px;
+    }
 
-  .card p {
-    font-size: 14px; /* Smaller text for readability */
-  }
+    .card-header {
+      font-size: 1.2em;
+    }
 
-  .card img {
-    max-width: 100%; /* Ensure images are fully visible */
-  }
+    .card p {
+      font-size: 12px;
+    }
 
-  .header-nav {
-    flex-wrap: wrap; /* Allow buttons to stack if needed */
-    gap: 10px;
-  }
+    .header-nav {
+      flex-direction: column;
+      gap: 5px;
+    }
 
-  .header-nav button {
-    font-size: 14px;
-    padding: 8px 15px; /* Reduce padding */
+    .header-nav button {
+      width: 90%;
+      font-size: 12px;
+    }
   }
-}
-
-@media (max-width: 480px) {
-  .carousel-wrapper {
-    width: 100%;
-    padding: 5px 0;
-  }
-
-  .carousel-card {
-    min-width: 100%; /* Each card fully occupies the screen */
-  }
-
-  .card {
-    min-width: 250px;
-    padding: 15px;
-  }
-
-  .card-header {
-    font-size: 1.2em;
-  }
-
-  .card p {
-    font-size: 12px;
-  }
-
-  .header-nav {
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 5px;
-  }
-
-  .header-nav button {
-    width: 90%; /* Full-width buttons */
-    font-size: 12px;
-  }
-}
-
 </style>
 
-<div class="header-nav">
-  {#each cards as card, index}
-    <button type="button" on:click={() => scrollToCard(index)}>{card.title}</button>
-  {/each}
-</div>
+{#if isMobile}
+  <div class="header-nav">
+    <button type="button" on:click={nextCard}>Next: {cards[(currentIndex + 1) % cards.length].title}</button>
+  </div>
+{:else}
+  <div class="header-nav">
+    {#each cards as card, index}
+      <button type="button" on:click={() => scrollToCard(index)}>{card.title}</button>
+    {/each}
+  </div>
+{/if}
 
 <div class="carousel-container">
   <div class="carousel-wrapper" id="carousel-wrapper">
@@ -215,7 +219,9 @@
           <p>{card.content}</p>
           <img src={card.image} alt={card.title} />
           <p>{card.content2}</p>
-          <img src={card.image2} alt={card.title} />
+          {#if card.image2}
+            <img src={card.image2} alt={card.title} />
+          {/if}
         </div>
       </div>
     {/each}

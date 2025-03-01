@@ -1,19 +1,38 @@
 <script>
+  import { onMount } from "svelte";
+
   import mpgImage from '../lib/Multi_Robustness_lineplot_Zorro_Annotated_mpg.png';  // Adjust the path to where the image is located
   import insImage from '../lib/Multi_Robustness_lineplot_Zorro_Annotated_ins.png';
   import fireImage from '../lib/Multi_Robustness_lineplot_Zorro_Annotated_fire.png';
   import bostonImage from '../lib/Multi_Robustness_lineplot_Zorro_Annotated_bos.png';
 
   let currentIndex = 0;
+  let isMobile = false;
 
   const cards = [
     {
       title: "Boston Dataset",
       content: ` `,
       image: bostonImage 
+    },
+    {
+      title: "MPG Dataset",
+      content: ` `,
+      image: mpgImage
+    },
+    {
+      title: "Insurance Dataset",
+      content: ` `,
+      image: insImage 
+    },
+    {
+      title: "Fire Dataset",
+      content: ` `,
+      image: fireImage 
     }
 
   ];
+
 
   function scrollToCard(index) {
     currentIndex = index;
@@ -22,6 +41,20 @@
       cardElement.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
     }
   }
+
+  function nextCard() {
+    currentIndex = (currentIndex + 1) % cards.length;
+    scrollToCard(currentIndex);
+  }
+
+  onMount(() => {
+    function updateScreenSize() {
+      isMobile = window.innerWidth <= 480;
+    }
+
+    updateScreenSize();
+    window.addEventListener("resize", updateScreenSize);
+  });
 </script>
 
 <style>
@@ -67,7 +100,7 @@
   }
 
   .card img {
-    max-width: 60%;
+    max-width: 90%;
     height: auto;
     border-radius: 10px;
     margin-bottom: 15px;
@@ -111,86 +144,53 @@
     background-color: black;
     color: rgb(255, 225, 0);
   }
-  @media (max-width: 768px) {
-  .carousel-wrapper {
-    width: 95%; /* Make carousel take most of the screen */
-    padding: 10px 0;
-  }
 
-  .carousel-card {
-    min-width: 90%; /* Ensure cards fit within screen */
-  }
+  @media (max-width: 480px) {
+    .carousel-wrapper {
+      width: 100%;
+      padding: 5px 0;
+    }
 
-  .card {
-    padding: 20px; /* Reduce padding for smaller screens */
-    min-width: 300px; /* Reduce card width */
-  }
+    .carousel-card {
+      min-width: 100%;
+    }
 
-  .card-header {
-    font-size: 1.4em; /* Reduce title size */
-    margin-bottom: 10px;
-  }
+    .card {
+      min-width: 250px;
+      padding: 15px;
+    }
 
-  .card p {
-    font-size: 14px; /* Smaller text for readability */
-  }
+    .card-header {
+      font-size: 1.2em;
+    }
 
-  .card img {
-    max-width: 100%; /* Ensure images are fully visible */
-  }
+    .card p {
+      font-size: 12px;
+    }
 
-  .header-nav {
-    flex-wrap: wrap; /* Allow buttons to stack if needed */
-    gap: 10px;
-  }
+    .header-nav {
+      flex-direction: column;
+      gap: 5px;
+    }
 
-  .header-nav button {
-    font-size: 14px;
-    padding: 8px 15px; /* Reduce padding */
+    .header-nav button {
+      width: 90%;
+      font-size: 12px;
+    }
   }
-}
-
-@media (max-width: 480px) {
-  .carousel-wrapper {
-    width: 100%;
-    padding: 5px 0;
-  }
-
-  .carousel-card {
-    min-width: 100%; /* Each card fully occupies the screen */
-  }
-
-  .card {
-    min-width: 250px;
-    padding: 15px;
-  }
-
-  .card-header {
-    font-size: 1.2em;
-  }
-
-  .card p {
-    font-size: 12px;
-  }
-
-  .header-nav {
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 5px;
-  }
-
-  .header-nav button {
-    width: 90%; /* Full-width buttons */
-    font-size: 12px;
-  }
-}
-
 </style>
 
-<div class="header-nav">
-  {#each cards as card, index}
-    <button type="button" on:click={() => scrollToCard(index)}>{card.title}</button>
-  {/each}
-</div>
+{#if isMobile}
+  <div class="header-nav">
+    <button type="button" on:click={nextCard}>Next: {cards[(currentIndex + 1) % cards.length].title}</button>
+  </div>
+{:else}
+  <div class="header-nav">
+    {#each cards as card, index}
+      <button type="button" on:click={() => scrollToCard(index)}>{card.title}</button>
+    {/each}
+  </div>
+{/if}
 
 <div class="carousel-container">
   <div class="carousel-wrapper" id="carousel-wrapper">

@@ -19,7 +19,7 @@
 
   function scrollToCard(index) {
     currentIndex = index;
-    const cardElement = document.getElementById(`card-carousel-card-${index}`);
+    const cardElement = document.getElementById(`card4-carousel-card-${index}`);
     if (cardElement) {
       cardElement.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
     }
@@ -178,7 +178,7 @@
 <div class="carousel-container">
   <div class="carousel-wrapper" id="carousel-wrapper">
     {#each cards as card, index}
-      <div id="card-carousel-card-{index}" class="carousel-card">
+      <div id="card4-carousel-card-{index}" class="carousel-card">
         <div class="card">
           <div class="card-header">{card.title}</div>
           <p>{card.content}</p>

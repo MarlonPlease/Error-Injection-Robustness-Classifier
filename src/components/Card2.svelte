@@ -1,10 +1,13 @@
 <script>
+  import { onMount } from "svelte";
+
   import mpgImage from '../lib/heuristic_histogram_mpg.png';  // Adjust the path to where the image is located
   import insImage from '../lib/ins-Discretization-method-heatmap-1.png';
   import fireImage from '../lib/fire-Discretization-method-heatmap-1.png';
   import bostonImage from '../lib/boston-Discretization-method-heatmap-1.png';
 
   let currentIndex = 0;
+  let isMobile = false;
 
   const cards = [
     {
@@ -16,18 +19,54 @@
 
       The best error injection method for the Boston dataset appears to be ZORRO Linear Regression Mean Squared Error Cut, which outperforms most ZORRO Leave-One-Out implementations.`,
       image: bostonImage 
+    },
+    {
+      title: "MPG Dataset",
+      content: `Fig. 3 shows that ZORRO parameters maintain better robustness ratios than Meyer parameters, though overall error injection effectiveness is similar to Leave One Out with minor differences. 
+      Under worst-case scenarios, robustness ratios vary across models and metrics without a clear pattern. 
+      For example, ZORRO on Linear Regression with mean absolute error has a similar robustness ratio to Random Forest with mean squared error.
+      The best error injection method for the mpg dataset appears to be Linear Regression with mean squared error, showing nearly a 10-percentage-point drop in robustness compared to other model combinations.`,
+      image: mpgImage
+    },
+    {
+      title: "Insurance Dataset",
+      content: `Fig. 4 shows that ZORRO's robustness ratios are much lower than those from the leave-one-out method in Fig. 2. 
+      Except for the 2.6 ratio from linear regression with mean absolute error—just slightly worse than the naive method—all other ratios fall far short.
+      Notably, the parameter-metric-model combinations that underperformed the naive method with leave one out (Fig. 2) also did so here.
+      Meanwhile, linear regression with mean absolute error, the only combination worse than the naive method in leave one out for insurance data, remains the sole underperformer.
+      Overall, the ratio performances have completely flipped between Fig. 2 and Fig. 4.`,
+      image: insImage 
+    },
+    {
+      title: "Fire Dataset",
+      content: ` `,
+      image: fireImage 
     }
     
 
   ];
 
-  function scrollToCard(index) {
+    function scrollToCard(index) {
     currentIndex = index;
     const cardElement = document.getElementById(`card2-carousel-card-${index}`);
     if (cardElement) {
       cardElement.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
     }
   }
+
+  function nextCard() {
+    currentIndex = (currentIndex + 1) % cards.length;
+    scrollToCard(currentIndex);
+  }
+
+  onMount(() => {
+    function updateScreenSize() {
+      isMobile = window.innerWidth <= 480;
+    }
+
+    updateScreenSize();
+    window.addEventListener("resize", updateScreenSize);
+  });
 </script>
 
 <style>
@@ -117,86 +156,53 @@
     background-color: black;
     color: rgb(255, 225, 0);
   }
-  @media (max-width: 768px) {
-  .carousel-wrapper {
-    width: 95%; /* Make carousel take most of the screen */
-    padding: 10px 0;
-  }
 
-  .carousel-card {
-    min-width: 90%; /* Ensure cards fit within screen */
-  }
+  @media (max-width: 480px) {
+    .carousel-wrapper {
+      width: 100%;
+      padding: 5px 0;
+    }
 
-  .card {
-    padding: 20px; /* Reduce padding for smaller screens */
-    min-width: 300px; /* Reduce card width */
-  }
+    .carousel-card {
+      min-width: 100%;
+    }
 
-  .card-header {
-    font-size: 1.4em; /* Reduce title size */
-    margin-bottom: 10px;
-  }
+    .card {
+      min-width: 250px;
+      padding: 15px;
+    }
 
-  .card p {
-    font-size: 14px; /* Smaller text for readability */
-  }
+    .card-header {
+      font-size: 1.2em;
+    }
 
-  .card img {
-    max-width: 100%; /* Ensure images are fully visible */
-  }
+    .card p {
+      font-size: 12px;
+    }
 
-  .header-nav {
-    flex-wrap: wrap; /* Allow buttons to stack if needed */
-    gap: 10px;
-  }
+    .header-nav {
+      flex-direction: column;
+      gap: 5px;
+    }
 
-  .header-nav button {
-    font-size: 14px;
-    padding: 8px 15px; /* Reduce padding */
+    .header-nav button {
+      width: 90%;
+      font-size: 12px;
+    }
   }
-}
-
-@media (max-width: 480px) {
-  .carousel-wrapper {
-    width: 100%;
-    padding: 5px 0;
-  }
-
-  .carousel-card {
-    min-width: 100%; /* Each card fully occupies the screen */
-  }
-
-  .card {
-    min-width: 250px;
-    padding: 15px;
-  }
-
-  .card-header {
-    font-size: 1.2em;
-  }
-
-  .card p {
-    font-size: 12px;
-  }
-
-  .header-nav {
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 5px;
-  }
-
-  .header-nav button {
-    width: 90%; /* Full-width buttons */
-    font-size: 12px;
-  }
-}
-
 </style>
 
-<div class="header-nav">
-  {#each cards as card, index}
-    <button type="button" on:click={() => scrollToCard(index)}>{card.title}</button>
-  {/each}
-</div>
+{#if isMobile}
+  <div class="header-nav">
+    <button type="button" on:click={nextCard}>Next: {cards[(currentIndex + 1) % cards.length].title}</button>
+  </div>
+{:else}
+  <div class="header-nav">
+    {#each cards as card, index}
+      <button type="button" on:click={() => scrollToCard(index)}>{card.title}</button>
+    {/each}
+  </div>
+{/if}
 
 <div class="carousel-container">
   <div class="carousel-wrapper" id="carousel-wrapper">
