@@ -1,54 +1,44 @@
 <script>
-  
-  
+  import { onMount } from "svelte";
+
   import boston_normalized from '../lib/boston_normalized.png';
   import boston_compared from '../lib/boston_compared.png';
-
   import mpg_normalized from '../lib/Normalization_MPG.png';
   import ins_normalized from '../lib/Normalization_INS.png';
   import fire_normalized from '../lib/Normalization_Fire.png';
 
-
   let currentIndex = 0;
+  let isMobile = false;
 
   const cards = [
-  {
-    title: "Boston Dataset",
-    content: "Method comparisons across the Boston Dataset",
-    image: boston_normalized,
-    content2: "Comparing the Robustness of “Boston” to other datasets",
-    image2: boston_compared
-  },
-  {
-    title: "MPG Dataset",
-    content: "Method comparisons across the Boston Dataset",
-    image: mpg_normalized,
-    content2: ""
-  },
-  {
-    title: "Insurance Dataset",
-    content: "Method comparisons across the Boston Dataset",
-    image: ins_normalized,
-    content2: ""
-  },
-  {
-    title: "Fire Dataset",
-    content: "Method comparisons across the Boston Dataset",
-    image: fire_normalized,
-    content2: ""
-  },
-
-];
+    { title: "Boston Dataset", content: "Method comparisons across the Boston Dataset", image: boston_normalized, content2: "Comparing the Robustness of “Boston” to other datasets", image2: boston_compared },
+    { title: "MPG Dataset", content: "Method comparisons across the MPG Dataset", image: mpg_normalized, content2: "" },
+    { title: "Insurance Dataset", content: "Method comparisons across the Insurance Dataset", image: ins_normalized, content2: "" },
+    { title: "Fire Dataset", content: "Method comparisons across the Fire Dataset", image: fire_normalized, content2: "" }
+  ];
 
   function scrollToCard(index) {
     currentIndex = index;
-    const cardElement = document.getElementById(`card4-carousel-card-${index}`);
+    const cardElement = document.getElementById(`card-carousel-card-${index}`);
     if (cardElement) {
       cardElement.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
     }
   }
-</script>
 
+  function nextCard() {
+    currentIndex = (currentIndex + 1) % cards.length;
+    scrollToCard(currentIndex);
+  }
+
+  onMount(() => {
+    function updateScreenSize() {
+      isMobile = window.innerWidth <= 480;
+    }
+
+    updateScreenSize();
+    window.addEventListener("resize", updateScreenSize);
+  });
+</script>
 
 <style>
   .carousel-container {
@@ -137,98 +127,66 @@
     background-color: black;
     color: rgb(255, 225, 0);
   }
-  @media (max-width: 768px) {
-  .carousel-wrapper {
-    width: 95%; /* Make carousel take most of the screen */
-    padding: 10px 0;
-  }
 
-  .carousel-card {
-    min-width: 90%; /* Ensure cards fit within screen */
-  }
+  @media (max-width: 480px) {
+    .carousel-wrapper {
+      width: 100%;
+      padding: 5px 0;
+    }
 
-  .card {
-    padding: 20px; /* Reduce padding for smaller screens */
-    min-width: 300px; /* Reduce card width */
-  }
+    .carousel-card {
+      min-width: 100%;
+    }
 
-  .card-header {
-    font-size: 1.4em; /* Reduce title size */
-    margin-bottom: 10px;
-  }
+    .card {
+      min-width: 250px;
+      padding: 15px;
+    }
 
-  .card p {
-    font-size: 14px; /* Smaller text for readability */
-  }
+    .card-header {
+      font-size: 1.2em;
+    }
 
-  .card img {
-    max-width: 100%; /* Ensure images are fully visible */
-  }
+    .card p {
+      font-size: 12px;
+    }
 
-  .header-nav {
-    flex-wrap: wrap; /* Allow buttons to stack if needed */
-    gap: 10px;
-  }
+    .header-nav {
+      flex-direction: column;
+      gap: 5px;
+    }
 
-  .header-nav button {
-    font-size: 14px;
-    padding: 8px 15px; /* Reduce padding */
+    .header-nav button {
+      width: 90%;
+      font-size: 12px;
+    }
   }
-}
-
-@media (max-width: 480px) {
-  .carousel-wrapper {
-    width: 100%;
-    padding: 5px 0;
-  }
-
-  .carousel-card {
-    min-width: 100%; /* Each card fully occupies the screen */
-  }
-
-  .card {
-    min-width: 250px;
-    padding: 15px;
-  }
-
-  .card-header {
-    font-size: 1.2em;
-  }
-
-  .card p {
-    font-size: 12px;
-  }
-
-  .header-nav {
-    flex-direction: column; /* Stack buttons vertically */
-    gap: 5px;
-  }
-
-  .header-nav button {
-    width: 90%; /* Full-width buttons */
-    font-size: 12px;
-  }
-}
-
 </style>
 
-<div class="header-nav">
-  {#each cards as card, index}
-    <button type="button" on:click={() => scrollToCard(index)}>{card.title}</button>
-  {/each}
-</div>
+{#if isMobile}
+  <div class="header-nav">
+    <button type="button" on:click={nextCard}>Next: {cards[(currentIndex + 1) % cards.length].title}</button>
+  </div>
+{:else}
+  <div class="header-nav">
+    {#each cards as card, index}
+      <button type="button" on:click={() => scrollToCard(index)}>{card.title}</button>
+    {/each}
+  </div>
+{/if}
 
 <div class="carousel-container">
   <div class="carousel-wrapper" id="carousel-wrapper">
     {#each cards as card, index}
-      <div id="card4-carousel-card-{index}" class="carousel-card">
-
+      <div id="card-carousel-card-{index}" class="carousel-card">
         <div class="card">
           <div class="card-header">{card.title}</div>
           <p>{card.content}</p>
           <img src={card.image} alt={card.title} />
           <p>{card.content2}</p>
-          <img src={card.image2} alt={card.title} />
+          {#if card.image2}
+            <img src={card.image2} alt={card.title} />
+          {/if}
         </div>
       </div>
     {/each}
