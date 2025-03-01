@@ -201,7 +201,7 @@
 <div class="carousel-container">
   <div class="carousel-wrapper" id="carousel-wrapper">
     {#each cards as card, index}
-      <div id={`card2-carousel-card-${index}`} class="carousel-card">
+      <div id="card2-carousel-card-{index}" class="carousel-card">
         <div class="card">
           <div class="card-header">{card.title}</div>
           <p>{card.content}</p>
