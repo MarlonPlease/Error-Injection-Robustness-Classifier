@@ -58,11 +58,13 @@
     scrollToCard(currentIndex);
 
     if (event && event.target) {
-    // Reset the button background color and text color after a short delay
+    const button = event.target;
+    
+    // Add a short delay before resetting the color
     setTimeout(() => {
-      event.target.style.backgroundColor = "rgb(255, 225, 0)";
-      event.target.style.color = "black";
-    }, 200);
+      button.style.backgroundColor = "rgb(255, 225, 0)";
+      button.style.color = "black";
+    }, 1000);
   }
 
   }
