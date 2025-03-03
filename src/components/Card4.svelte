@@ -28,6 +28,17 @@
   function nextCard() {
     currentIndex = (currentIndex + 1) % cards.length;
     scrollToCard(currentIndex);
+
+    if (event && event.target) {
+    const button = event.target;
+    
+    // Add a short delay before resetting the color
+    setTimeout(() => {
+      button.style.backgroundColor = "rgb(255, 225, 0)";
+      button.style.color = "black";
+    }, 100);
+  }
+    
   }
 
   onMount(() => {
