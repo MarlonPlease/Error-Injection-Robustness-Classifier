@@ -58,9 +58,11 @@
     scrollToCard(currentIndex);
 
     if (event && event.target) {
+    // Reset the button background color and text color after a short delay
     setTimeout(() => {
-      event.target.blur();
-    }, 100);
+      event.target.style.backgroundColor = "rgb(255, 225, 0)";
+      event.target.style.color = "black";
+    }, 200);
   }
 
   }
