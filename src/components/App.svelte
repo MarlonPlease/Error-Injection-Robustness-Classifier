@@ -290,6 +290,7 @@
         background: linear-gradient(to right, white, rgb(255, 255, 255));
         padding: 10px 20px;
         display: inline-block;
+        
     }
 
     h1 {
@@ -364,6 +365,7 @@
     .custom-title {
         font-size: 32px; /* Reduce heading size */
         padding: 8px;
+        margin-top: 120px;
     }
 
     h1 {
@@ -389,6 +391,7 @@
 
     .custom-title {
         font-size: 28px;
+        
     }
 
     h1 {
