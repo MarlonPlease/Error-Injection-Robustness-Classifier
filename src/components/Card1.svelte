@@ -56,6 +56,13 @@
   function nextCard() {
     currentIndex = (currentIndex + 1) % cards.length;
     scrollToCard(currentIndex);
+
+    if (event && event.target) {
+    setTimeout(() => {
+      event.target.blur();
+    }, 100);
+  }
+
   }
 
   onMount(() => {
