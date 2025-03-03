@@ -64,7 +64,7 @@
     setTimeout(() => {
       button.style.backgroundColor = "rgb(255, 225, 0)";
       button.style.color = "black";
-    }, 1000);
+    }, 100);
   }
 
   }
